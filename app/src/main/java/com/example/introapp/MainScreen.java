@@ -27,8 +27,12 @@ public class MainScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
+        setContentView(R.layout.activity_main_screen);
+        screens = new int[]{
+                R.layout.intro_screen_1,
+                R.layout.intro_screen_2,
+                R.layout.intro_screen_3
+        };
         vp = (ViewPager) findViewById(R.id.view_pager);
         Layout_bars = (LinearLayout) findViewById(R.id.layoutBars);
         Skip = (Button) findViewById(R.id.skip);
@@ -41,11 +45,7 @@ public class MainScreen extends AppCompatActivity {
             launchMain();
             finish();
         }
-        screens = new int[]{
-                R.layout.intro_screen_1,
-                R.layout.intro_screen_2,
-                R.layout.intro_screen_3
-        };
+
         ColoredBars(0);
     }
     public void next(View v) {
@@ -57,6 +57,7 @@ public class MainScreen extends AppCompatActivity {
         }
     }
 
+    public void start(View view){launchMain();}
     public void skip(View view) {
         launchMain();
     }
